@@ -19,7 +19,7 @@ const user = {
         }
     ]
 };
-
+//Zad. 3
 function calculateWeightedAverage(user) {
   let sumOfWeightedGrades = 0;
   let totalWeight = 0;
@@ -41,3 +41,11 @@ function calculateWeightedAverage(user) {
 }
 
 calculateWeightedAverage(user);
+//Zad. 4
+const subjectWithWeightOne = _.find(user.allGrades, { weight: 1 });
+
+if (subjectWithWeightOne) {
+  console.log(`Przedmiot z wagą 1: ${subjectWithWeightOne.subjectName}`);
+} else {
+  close.log('Nie znaleziono przedmiotu z wagą 1.');
+}
