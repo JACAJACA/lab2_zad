@@ -49,3 +49,35 @@ if (subjectWithWeightOne) {
 } else {
   close.log('Nie znaleziono przedmiotu z wagą 1.');
 }
+//Zad. 5
+const collections = [
+  {},
+  15,
+  "hello@test.pl",
+  null,
+  ['aaa', 'bbb', 5],
+  'admin@gmail.com',
+  undefined,
+  'a34@yahoo.com',
+  '321@a',
+  '321.pl'
+];
+
+function getMails(collections) {
+  const strings = collections.filter(item => typeof item === 'string');
+  const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b/g;
+
+  const emails = strings.reduce((acc, str) => {
+    const matches = str.match(emailRegex);
+    if (matches) {
+      acc.push(...matches);
+    }
+    return acc;
+  }, []);
+  const sortedEmails = emails.sort();
+
+  return sortedEmails;
+}
+
+const result = getMails(collections);
+console.log(result);
